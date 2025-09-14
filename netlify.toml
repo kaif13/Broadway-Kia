@@ -1,8 +1,7 @@
 [build]
   command = "npm run build"
-  publish = "build"
+  publish = "dist"
 
-# ✅ This makes sure your React Router or SPA works on Netlify
 [[redirects]]
   from = "/*"
   to = "/index.html"
