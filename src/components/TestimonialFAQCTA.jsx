@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Showroom = "/assets/contact-image.jpg";
+
 export default function TestimonialFAQCTA() {
+  const navigate = useNavigate();
   // ✅ Testimonial Data
   const testimonials = [
     {
@@ -139,7 +142,10 @@ export default function TestimonialFAQCTA() {
           <p className="text-gray-700 mb-6">
             Contact us to find your perfect match!
           </p>
-          <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition text-lg">
+          <button
+            className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition text-lg"
+            onClick={() => navigate("/Contact")}
+          >
             Contact Us
           </button>
         </div>

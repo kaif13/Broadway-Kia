@@ -3,6 +3,8 @@ import MissionSection from "../components/MissionSection";
 import Cars from "../components/Cars";
 import CustomerPerks from "../components/CustomerPerks";
 import TestimonialFAQCTA from "../components/TestimonialFAQCTA";
+import AboutUs from "../components/AboutUs";
+
 const CarImage = "../assets/home-car.webp"; // car image path
 const LeftImage = "/assets/left.jpg"; // left image
 const RightImage = "/assets/right.jpg"; // right image
@@ -16,7 +18,7 @@ export default function Home() {
           <img
             src={CarImage}
             alt="Car"
-            className="w-full h-[60vh] md:h-[70vh] object-cover object-center"
+            className="w-full h-[50vh] md:h-[80vh] object-cover object-center"
           />
         </div>
 
@@ -45,6 +47,7 @@ export default function Home() {
       <Cars />
       <CustomerPerks />
       <TestimonialFAQCTA />
+      <AboutUs />
     </>
   );
 }
