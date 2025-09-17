@@ -1,7 +1,7 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
-// Cars Data (same as Sales.jsx)
+// Cars Data
 const cars = [
   {
     id: "carens-ev",
@@ -12,6 +12,7 @@ const cars = [
     transmission: "Automatic",
     seating: "7 Seater",
     mileage: "450 km/charge",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
   {
     id: "seltos",
@@ -22,6 +23,7 @@ const cars = [
     transmission: "Manual/Automatic",
     seating: "5 Seater",
     mileage: "17-21 km/l",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
   {
     id: "sonet",
@@ -32,6 +34,7 @@ const cars = [
     transmission: "Manual/Automatic",
     seating: "5 Seater",
     mileage: "18-24 km/l",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
   {
     id: "carnival",
@@ -42,31 +45,35 @@ const cars = [
     transmission: "Automatic",
     seating: "7 Seater",
     mileage: "14 km/l",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
   {
-    id: "sportage",
-    name: "KIA SPORTAGE",
+    id: "syros",
+    name: "KIA SYROS",
     price: "₹25.50 Lakhs",
-    image: "/assets/sportage.jpg",
+    image: "/assets/syros.jpg",
     fuel: "Petrol",
     transmission: "Automatic",
     seating: "5 Seater",
     mileage: "16 km/l",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
   {
     id: "ev6",
     name: "KIA EV6",
     price: "₹60.95 Lakhs",
-    image: "/assets/ev6.jpg",
+    image: "/assets/EV-6.jpg",
     fuel: "Electric",
     transmission: "Automatic",
     seating: "5 Seater",
     mileage: "528 km/charge",
+    models: ["2024 Base", "2024 Top", "2025 Base", "2025 Top"],
   },
 ];
 
 export default function CarDetail() {
   const { carId } = useParams();
+  const navigate = useNavigate();
   const car = cars.find((c) => c.id === carId);
 
   if (!car) {
@@ -75,6 +82,16 @@ export default function CarDetail() {
 
   return (
     <section className="px-6 md:px-20 py-16">
+      {/* Back Button */}
+      <div className="mb-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-gray-200 text-black px-4 py-2 rounded-lg hover:bg-gray-300 transition"
+        >
+          ← Back
+        </button>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Side Image */}
         <img
@@ -113,12 +130,15 @@ export default function CarDetail() {
           <div className="flex gap-4">
             <Link
               to="/book-appointment"
+              state={{ carModel: car.name, modelOptions: car.models }} // ✅ pass full model list
               className="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
             >
               Book Appointment
             </Link>
+
             <Link
               to="/book-testdrive"
+              state={{ carModel: car.name, modelOptions: car.models }} // ✅ pass model options
               className="bg-white border border-black text-black px-5 py-2 rounded-lg hover:bg-gray-200 transition"
             >
               Book Test Drive

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AboutUs from "../components/AboutUs";
 
 const cars = [
   {
@@ -30,39 +31,42 @@ const cars = [
     id: "ev6",
     name: "KIA EV6",
     price: "₹60.95 Lakhs",
-    image: "/assets/ev6.jpg",
+    image: "/assets/EV-6.jpg",
   },
   {
-    id: "sportage",
-    name: "KIA SPORTAGE 2025",
+    id: "syros",
+    name: "KIA SYROS",
     price: "₹25.75 Lakhs",
-    image: "/assets/sportage.jpg",
+    image: "/assets/syros.jpg",
   },
 ];
 
 export default function Cars() {
   return (
-    <section className="px-6 md:px-20 py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {cars.map((car) => (
-          <div
-            key={car.id}
-            className="bg-white shadow-md rounded-xl overflow-hidden text-center hover:shadow-lg transition-shadow duration-300"
-          >
-            <Link to={`/cars/${car.id}`}>
-              <img
-                src={car.image}
-                alt={car.name}
-                className="w-full h-[200px] object-contain mb-4 cursor-pointer hover:scale-105 transition-transform duration-300"
-              />
-            </Link>
-            <div className="px-4 pb-4">
-              <h3 className="font-semibold text-lg">{car.name}</h3>
-              <p className="text-gray-600">Starting @ {car.price}</p>
+    <>
+      <section className="px-6 md:px-20 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cars.map((car) => (
+            <div
+              key={car.id}
+              className="bg-white shadow-md rounded-xl overflow-hidden text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <Link to={`/cars/${car.id}`}>
+                <img
+                  src={car.image}
+                  alt={car.name}
+                  className="w-full h-[200px] object-contain mb-4 cursor-pointer hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
+              <div className="px-4 pb-4">
+                <h3 className="font-semibold text-lg">{car.name}</h3>
+                <p className="text-gray-600">Starting @ {car.price}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+      <AboutUs />
+    </>
   );
 }
