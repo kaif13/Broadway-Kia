@@ -9,10 +9,10 @@ Designed to work across all devices with a structured and maintainable codebase.
 ## 📸 Screenshots
 
 ![Home Page](./public/assets/Screenshot%202025-11-11%20112305.png)  
-![Sales Page](./Public/assets/sale.png)
-![Service Page](./Public/assets/service.png)
-![About Page](./Public/assets/About.png)
-![Contact Us Page](./Public/assets/contact.png)
+![Sales Page](./public/assets/sale.png)
+![Service Page](./public/assets/service.png)
+![About Page](./public/assets/About.png)
+![Contact Us Page](./public/assets/contact.png)
 
 ---
 
